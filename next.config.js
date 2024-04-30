@@ -11,13 +11,18 @@ const withPWA = require('@ducanh2912/next-pwa').default({
   disable: process.env.NODE_ENV === 'development',
 })
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  typescript: {
+    ignoreBuildErrors: false, // true to ignore ts
+  },
   // uncomment the following snippet if using styled components
-  // compiler: {
-  //   styledComponents: true,
-  // },
+  compiler: {
+    styledComponents: true,
+  },
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   images: {},
+  transpilePackages: ['three'],
   webpack(config, { isServer }) {
     if (!isServer) {
       // We're in the browser build, so we can safely exclude the sharp module
@@ -25,7 +30,7 @@ const nextConfig = {
     }
     // audio support
     config.module.rules.push({
-      test: /\.(ogg|mp3|wav|mpe?g)$/i,
+      test: /\.(ogg|mp3|wav|mpe?g|jpe?g|png)$/i,
       exclude: config.exclude,
       use: [
         {
@@ -42,18 +47,19 @@ const nextConfig = {
       ],
     })
 
-    // shader support
-    config.module.rules.push({
-      test: /\.(glsl|vs|fs|vert|frag)$/,
-      exclude: /node_modules/,
-      use: ['raw-loader', 'glslify-loader'],
-    })
-
     return config
   },
 }
 
-const KEYS_TO_OMIT = ['webpackDevMiddleware', 'configOrigin', 'target', 'analyticsId', 'webpack5', 'amp', 'assetPrefix']
+const KEYS_TO_OMIT = [
+  'webpackDevMiddleware',
+  'configOrigin',
+  'target',
+  'analyticsId',
+  'webpack5',
+  'amp',
+  'assetPrefix',
+]
 
 module.exports = (_phase, { defaultConfig }) => {
   const plugins = [[withPWA], [withBundleAnalyzer, {}]]
@@ -64,11 +70,11 @@ module.exports = (_phase, { defaultConfig }) => {
   })
 
   const finalConfig = {}
-  Object.keys(wConfig).forEach((key) => {
+  for (const key of Object.keys(wConfig)) {
     if (!KEYS_TO_OMIT.includes(key)) {
       finalConfig[key] = wConfig[key]
     }
-  })
+  }
 
   return finalConfig
 }
