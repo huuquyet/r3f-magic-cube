@@ -4,9 +4,12 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import Loading from './loading'
 
-const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), {
-  ssr: false,
-})
+const MagicCube = dynamic(
+  () => import('@/components/canvas/MagicCube').then((mod) => mod.MagicCube),
+  {
+    ssr: false,
+  }
+)
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => <Loading />,
@@ -28,14 +31,12 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="w-full text-center md:w-3/5">
-          <View className="flex h-96 w-full flex-col items-center justify-center">
-            <Suspense fallback={null}>
-              <Logo route="/period" scale={0.6} position={[0, 0, 0]} />
-              <Common />
-            </Suspense>
-          </View>
-        </div>
+        <View orbit className="absolute top-0 flex h-screen w-full flex-col items-center justify-center">
+          <Suspense fallback={null}>
+            <MagicCube />
+            <Common />
+          </Suspense>
+        </View>
       </div>
     </>
   )

@@ -3,9 +3,12 @@
 import dynamic from 'next/dynamic'
 import Loading from '../loading'
 
-const Period = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Period), {
-  ssr: false,
-})
+const MagicCube = dynamic(
+  () => import('@/components/canvas/MagicCube').then((mod) => mod.MagicCube),
+  {
+    ssr: false,
+  }
+)
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => <Loading />,
@@ -31,7 +34,7 @@ export default function Page() {
         orbit
         className="absolute top-0 flex h-screen w-full flex-col items-center justify-center"
       >
-        <Period />
+        <MagicCube />
         <Common />
       </View>
     </>

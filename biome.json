@@ -26,21 +26,18 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "correctness": {
-        "useExhaustiveDependencies": "off"
-      },
       "a11y": {
+        "noSvgWithoutTitle": "off",
         "useKeyWithClickEvents": "off"
       },
-      "security": {
-        "noDangerouslySetInnerHtml": "off"
+      "correctness": {
+        "useExhaustiveDependencies": "off"
       },
       "style": {
         "noNonNullAssertion": "off"
       },
       "suspicious": {
-        "noEmptyInterface": "off",
-        "noExplicitAny": "off"
+        "noAssignInExpressions": "off"
       }
     }
   },
