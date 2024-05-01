@@ -31,7 +31,10 @@ export default function Page() {
           </p>
         </div>
 
-        <View orbit className="absolute top-0 flex h-screen w-full flex-col items-center justify-center">
+        <View
+          orbit
+          className="absolute top-0 flex h-screen w-full flex-col items-center justify-center"
+        >
           <Suspense fallback={null}>
             <MagicCube />
             <Common />

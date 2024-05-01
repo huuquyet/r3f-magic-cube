@@ -5,43 +5,50 @@ import { useFrame } from '@react-three/fiber'
 import { useMemo, useRef, useState } from 'react'
 
 const NUMBER_LIST = {
-  1: [-1, 1, 1],
-  2: [0, 1, 1],
-  3: [1, 1, 1],
-  4: [-1, 1, 0],
-  5: [0, 1, 0],
-  6: [1, 1, 0],
-  7: [-1, 1, -1],
-  8: [0, 1, -1],
-  9: [1, 1, -1],
-  10: [-1, 0, 1],
-  11: [0, 0, 1],
-  12: [1, 0, 1],
-  13: [-1, 0, 0],
+  8: [-1, 1, 1],
+  24: [0, 1, 1],
+  10: [1, 1, 1],
+  15: [-1, 1, 0],
+  1: [0, 1, 0],
+  26: [1, 1, 0],
+  19: [-1, 1, -1],
+  17: [0, 1, -1],
+  6: [1, 1, -1],
+  12: [-1, 0, 1],
+  7: [0, 0, 1],
+  23: [1, 0, 1],
+  25: [-1, 0, 0],
   14: [0, 0, 0],
-  15: [1, 0, 0],
-  16: [-1, 0, -1],
-  17: [0, 0, -1],
-  18: [1, 0, -1],
-  19: [-1, -1, 1],
-  20: [0, -1, 1],
-  21: [1, -1, 1],
-  22: [-1, -1, 0],
-  23: [0, -1, 0],
-  24: [1, -1, 0],
-  25: [-1, -1, -1],
-  26: [0, -1, -1],
-  27: [1, -1, -1],
+  3: [1, 0, 0],
+  5: [-1, 0, -1],
+  21: [0, 0, -1],
+  16: [1, 0, -1],
+  22: [-1, -1, 1],
+  11: [0, -1, 1],
+  9: [1, -1, 1],
+  2: [-1, -1, 0],
+  27: [0, -1, 0],
+  13: [1, -1, 0],
+  18: [-1, -1, -1],
+  4: [0, -1, -1],
+  20: [1, -1, -1],
 }
 
 export const MagicCube = ({ ...props }) => {
-  const ref = useRef()
+  const ref = useRef(null)
+  useFrame((state, delta) => {
+    const t = state.clock.getElapsedTime()
+    ref.current.rotation.x = Math.sin(t) * (Math.PI / 8)
+    ref.current.rotation.y -= delta / 4
+    ref.current.rotation.z = delta / 4
+  })
+
   return (
-    <mesh ref={ref} {...props}>
+    <group ref={ref} {...props}>
       {Object.entries(NUMBER_LIST).map(([key, value]) => (
         <NumberNode key={key} text={key} position={value} />
       ))}
-    </mesh>
+    </group>
   )
 }
 
