@@ -37,7 +37,7 @@ const NUMBER_LIST = {
 
 export const MagicCube = ({ ...props }) => {
   const ref = useRef<Group>(null!)
-  useFrame((state, delta) => {
+  useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
     ref.current.rotation.x = (Math.sin(t) * Math.PI) / 8
     ref.current.rotation.y += Math.abs(Math.sin(delta / 4))
@@ -53,7 +53,7 @@ export const MagicCube = ({ ...props }) => {
   )
 }
 
-const NumberNode = ({ text, ...props }) => {
+const NumberNode = ({ text, ...props }: { text: any }) => {
   const [hovered, hover] = useState(false)
   useCursor(hovered)
 
@@ -78,7 +78,7 @@ export const MagicCubeShort = ({ ...props }) => {
     18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24,
     10,
   ]
-  useFrame((state, delta) => {
+  useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
     ref.current.rotation.x = (Math.sin(t) * Math.PI) / 8
     ref.current.rotation.y += delta / 4
@@ -88,7 +88,7 @@ export const MagicCubeShort = ({ ...props }) => {
   return (
     <group ref={ref} {...props}>
       {arrNumber.map((e, i) => (
-        <NumberNode key={i} text={e} position={[i % 3, Math.floor(i / 9), Math.floor(i / 3) % 3]} />
+        <NumberNode key={e} text={e} position={[i % 3, Math.floor(i / 9), Math.floor(i / 3) % 3]} />
       ))}
     </group>
   )

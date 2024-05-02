@@ -4,10 +4,10 @@ import { Line, useCursor } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRouter } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
-import { EllipseCurve } from 'three'
+import { EllipseCurve, type Mesh } from 'three'
 
-export const Logo = ({ route = '/period', ...props }) => {
-  const mesh = useRef(null)
+export const Logo = ({ route = '/period', ...props }: { route: string }) => {
+  const mesh = useRef<Mesh>(null!)
   const router = useRouter()
 
   const [hovered, hover] = useState(false)
@@ -17,7 +17,7 @@ export const Logo = ({ route = '/period', ...props }) => {
   )
 
   useCursor(hovered)
-  useFrame((state, delta) => {
+  useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
     mesh.current.rotation.y = Math.sin(t) * (Math.PI / 8)
     mesh.current.rotation.x = Math.cos(t) * (Math.PI / 8)

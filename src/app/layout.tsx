@@ -2,6 +2,7 @@ import { Layout } from '@/components/dom/Layout'
 import './global.css'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 
 const APP_NAME = 'Next.js + React Three Fiber'
 const APP_DEFAULT_TITLE = 'Next.js + React Three Fiber'
@@ -10,7 +11,7 @@ const APP_DESCRIPTION = 'A minimal starter for Nextjs + React-three-fiber and Th
 const APP_URL = 'https://r3f-app.vercel.app/'
 const TWITTER = '@HuuQuyetNg'
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="antialiased">
       {/*
