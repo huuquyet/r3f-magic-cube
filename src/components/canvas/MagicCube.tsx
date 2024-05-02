@@ -5,49 +5,51 @@ import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 import type { Group } from 'three'
 
-const NUMBER_LIST = {
-  8: [-1, 1, 1],
-  24: [0, 1, 1],
-  10: [1, 1, 1],
-  15: [-1, 1, 0],
-  1: [0, 1, 0],
-  26: [1, 1, 0],
-  19: [-1, 1, -1],
-  17: [0, 1, -1],
-  6: [1, 1, -1],
-  12: [-1, 0, 1],
-  7: [0, 0, 1],
-  23: [1, 0, 1],
-  25: [-1, 0, 0],
-  14: [0, 0, 0],
-  3: [1, 0, 0],
-  5: [-1, 0, -1],
-  21: [0, 0, -1],
-  16: [1, 0, -1],
-  22: [-1, -1, 1],
-  11: [0, -1, 1],
-  9: [1, -1, 1],
-  2: [-1, -1, 0],
-  27: [0, -1, 0],
-  13: [1, -1, 0],
-  18: [-1, -1, -1],
-  4: [0, -1, -1],
-  20: [1, -1, -1],
-}
+const ASPECT_1 = [
+  18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24, 10,
+]
+const ASPECT_2 = [
+  16, 5, 21, 2, 27, 13, 24, 10, 8, 6, 19, 17, 25, 14, 3, 11, 9, 22, 20, 18, 4, 15, 1, 26, 7, 23, 12,
+]
+const ASPECT_3 = [
+  10, 5, 27, 6, 25, 11, 26, 12, 4, 8, 21, 13, 19, 14, 9, 15, 7, 20, 24, 16, 2, 17, 3, 22, 1, 23, 18,
+]
+const ASPECT_4 = [
+  12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
+]
 
-export const MagicCube = ({ ...props }) => {
+export const MagicCube = ({ type, ...props }: { type?: number }) => {
   const ref = useRef<Group>(null!)
   useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
     ref.current.rotation.x = (Math.sin(t) * Math.PI) / 8
-    ref.current.rotation.y += Math.abs(Math.sin(delta / 4))
-    ref.current.rotation.z = delta / 4
+    ref.current.rotation.y = Math.sin(delta / 4)
+    ref.current.rotation.z = (Math.cos(t) * Math.PI) / 8
   })
+
+  let cubeArray: number[]
+  switch (type) {
+    case 1:
+      cubeArray = ASPECT_1
+      break
+    case 2:
+      cubeArray = ASPECT_2
+      break
+    case 3:
+      cubeArray = ASPECT_3
+      break
+    default:
+      cubeArray = ASPECT_4
+  }
 
   return (
     <group ref={ref} {...props}>
-      {Object.entries(NUMBER_LIST).map(([key, value]) => (
-        <NumberNode key={key} text={key} position={value} />
+      {cubeArray.map((e, i) => (
+        <NumberNode
+          key={e}
+          text={e}
+          position={[(i % 3) - 1, Math.floor(i / 9) - 1, (Math.floor(i / 3) % 3) - 1]}
+        />
       ))}
     </group>
   )
@@ -61,7 +63,7 @@ const NumberNode = ({ text, ...props }: { text: any }) => {
     <Center
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
-      scale={0.5}
+      scale={0.4}
       {...props}
     >
       <Text3D font={'/fonts/helvetiker_bold.typeface.json'}>
@@ -69,27 +71,5 @@ const NumberNode = ({ text, ...props }: { text: any }) => {
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />
       </Text3D>
     </Center>
-  )
-}
-
-export const MagicCubeShort = ({ ...props }) => {
-  const ref = useRef<Group>(null!)
-  const arrNumber = [
-    18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24,
-    10,
-  ]
-  useFrame((state: any, delta: number) => {
-    const t = state.clock.getElapsedTime()
-    ref.current.rotation.x = (Math.sin(t) * Math.PI) / 8
-    ref.current.rotation.y += delta / 4
-    ref.current.rotation.z = delta / 4
-  })
-
-  return (
-    <group ref={ref} {...props}>
-      {arrNumber.map((e, i) => (
-        <NumberNode key={e} text={e} position={[i % 3, Math.floor(i / 9), Math.floor(i / 3) % 3]} />
-      ))}
-    </group>
   )
 }

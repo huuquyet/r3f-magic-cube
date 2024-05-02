@@ -1,6 +1,6 @@
 {
-  "name": "R3F Next Starter",
-  "short_name": "R3F Next Starter",
+  "name": "Magic Cube built with React Three Fiber",
+  "short_name": "Magic Cube",
   "icons": [
     {
       "src": "/icons/apple-touch-icon.png",

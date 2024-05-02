@@ -4,11 +4,11 @@ import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 
-const APP_NAME = 'Next.js + React Three Fiber'
-const APP_DEFAULT_TITLE = 'Next.js + React Three Fiber'
+const APP_NAME = 'Magic Cube'
+const APP_DEFAULT_TITLE = 'Magic Cube built with React Three Fiber'
 const APP_TITLE_TEMPLATE = '%s - Awesome App'
-const APP_DESCRIPTION = 'A minimal starter for Nextjs + React-three-fiber and Threejs.'
-const APP_URL = 'https://r3f-app.vercel.app/'
+const APP_DESCRIPTION = 'Magic Cube built with React-Three-Fiber + Three.js + Next.js.'
+const APP_URL = 'https://magic-cube-r3f.vercel.app/'
 const TWITTER = '@HuuQuyetNg'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -66,5 +66,5 @@ export const metadata: Metadata = {
     description: APP_DESCRIPTION,
     site: TWITTER,
   },
-  keywords: ['Next.js', 'React Three Fiber', 'Three.js'],
+  keywords: ['Magic Cube', 'React Three Fiber', 'Three.js', 'Next.js'],
 }

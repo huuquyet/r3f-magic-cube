@@ -1,5 +1,6 @@
 {
-  "name": "r3f-app",
+  "name": "r3f-magic-cube",
+  "description": "Magic Cube built with React-Three-Fiber + Three.js + Next.js",
   "version": "2.0.0",
   "private": true,
   "scripts": {

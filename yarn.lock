@@ -4673,9 +4673,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"r3f-app@workspace:.":
+"r3f-magic-cube@workspace:.":
   version: 0.0.0-use.local
-  resolution: "r3f-app@workspace:."
+  resolution: "r3f-magic-cube@workspace:."
   dependencies:
     "@ducanh2912/next-pwa": "npm:^10.2.6"
     "@next/bundle-analyzer": "npm:^14.2.3"
