@@ -1,6 +1,7 @@
 import { Layout } from '@/components/dom/Layout'
 import './global.css'
 import { Analytics } from '@vercel/analytics/react'
+import type { Metadata } from 'next'
 
 const APP_NAME = 'Next.js + React Three Fiber'
 const APP_DEFAULT_TITLE = 'Next.js + React Three Fiber'

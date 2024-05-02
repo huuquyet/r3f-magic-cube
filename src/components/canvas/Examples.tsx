@@ -1,10 +1,10 @@
 'use client'
 
-import { Center, Line, MeshDistortMaterial, Text3D, useCursor } from '@react-three/drei'
+import { Line, useCursor } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRouter } from 'next/navigation'
 import { useMemo, useRef, useState } from 'react'
-import * as THREE from 'three'
+import { EllipseCurve } from 'three'
 
 export const Logo = ({ route = '/period', ...props }) => {
   const mesh = useRef(null)
@@ -12,7 +12,7 @@ export const Logo = ({ route = '/period', ...props }) => {
 
   const [hovered, hover] = useState(false)
   const points = useMemo(
-    () => new THREE.EllipseCurve(0, 0, 3, 1.15, 0, 2 * Math.PI, false, 0).getPoints(100),
+    () => new EllipseCurve(0, 0, 3, 1.15, 0, 2 * Math.PI, false, 0).getPoints(100),
     []
   )
 

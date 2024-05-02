@@ -16,7 +16,7 @@
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.6",
     "@react-three/drei": "^9.105.5",
-    "@react-three/fiber": "^8.16.2",
+    "@react-three/fiber": "^8.16.3",
     "@studio-freight/lenis": "^1.0.42",
     "@vercel/analytics": "^1.2.2",
     "next": "^14.2.3",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2.3",
-    "@types/node": "^20.12.7",
+    "@types/node": "^20.12.8",
     "@types/react": "^18.3.1",
     "autoprefixer": "^10.4.19",
     "file-loader": "^6.2.0",

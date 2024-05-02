@@ -1,8 +1,8 @@
 'use client'
 
-import { Center, Line, MeshDistortMaterial, Text3D, useCursor } from '@react-three/drei'
+import { Center, Text3D, useCursor } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useMemo, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 
 const NUMBER_LIST = {
   8: [-1, 1, 1],

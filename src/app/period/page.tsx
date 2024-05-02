@@ -1,7 +1,7 @@
 'use client'
 
+import Loading from '@/app/loading'
 import dynamic from 'next/dynamic'
-import Loading from '../loading'
 
 const MagicCube = dynamic(
   () => import('@/components/canvas/MagicCube').then((mod) => mod.MagicCube),
