@@ -21,11 +21,11 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 export default function Page() {
   return (
     <>
-      <div className="mx-auto flex w-full flex-col flex-wrap items-center md:flex-row lg:w-4/5">
+      <div className="mx-auto flex w-full flex-col flex-wrap items-center md:flex-row">
         {/* jumbo */}
-        <div className="flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left">
-          <p className="w-full uppercase">React Three Fiber</p>
-          <h1 className="my-4 text-5xl font-bold leading-tight">Magic Cube</h1>
+        <div className="flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left z-[1]">
+          <p className="w-full uppercase text-sky-500">React Three Fiber</p>
+          <h1 className="my-4 text-5xl font-bold leading-tight text-slate-500">Magic Cube</h1>
         </div>
 
         <View
@@ -34,7 +34,7 @@ export default function Page() {
         >
           <Suspense fallback={null}>
             <MagicCube />
-            <Common />
+            <Common color="black" />
           </Suspense>
         </View>
       </div>

@@ -55,7 +55,11 @@ export const MagicCube = ({ type, ...props }: { type?: number }) => {
   )
 }
 
-const NumberNode = ({ text, ...props }: { text: any }) => {
+const NumberNode = ({
+  text,
+  font = '/fonts/helvetiker_bold.typeface.json',
+  ...props
+}: { text: any; font?: string }) => {
   const [hovered, hover] = useState(false)
   useCursor(hovered)
 
@@ -66,7 +70,16 @@ const NumberNode = ({ text, ...props }: { text: any }) => {
       scale={0.4}
       {...props}
     >
-      <Text3D font={'/fonts/helvetiker_bold.typeface.json'}>
+      <Text3D
+        font={font}
+        castShadow
+        bevelEnabled
+        letterSpacing={-0.03}
+        bevelSize={0.01}
+        bevelSegments={10}
+        curveSegments={128}
+        bevelThickness={0.01}
+      >
         {text}
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />
       </Text3D>

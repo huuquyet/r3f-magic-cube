@@ -1,7 +1,7 @@
 'use client'
 
 import { Three } from '@/helpers/components/Three'
-import { OrbitControls, PerspectiveCamera, View as ViewImpl } from '@react-three/drei'
+import { OrbitControls, PerspectiveCamera, Stars, View as ViewImpl } from '@react-three/drei'
 import { type ReactNode, Suspense, forwardRef, useImperativeHandle, useRef } from 'react'
 
 export const Common = ({ color }: { color: string }) => (
@@ -10,7 +10,8 @@ export const Common = ({ color }: { color: string }) => (
     <ambientLight />
     <pointLight position={[20, 30, 10]} intensity={3} decay={0.2} />
     <pointLight position={[-10, -10, -10]} color="blue" decay={0.2} />
-    <PerspectiveCamera makeDefault fov={40} position={[0, 0, 6]} />
+    <PerspectiveCamera makeDefault fov={40} position={[0, 0, 10]} />
+    <Stars saturation={0} count={500} speed={0.5} />
   </Suspense>
 )
 
