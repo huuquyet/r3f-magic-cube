@@ -38,8 +38,8 @@ export const MagicCube = ({ ...props }) => {
   const ref = useRef(null)
   useFrame((state, delta) => {
     const t = state.clock.getElapsedTime()
-    ref.current.rotation.x = Math.sin(t) * (Math.PI / 8)
-    ref.current.rotation.y -= delta / 4
+    ref.current.rotation.x = (Math.sin(t) * Math.PI) / 8
+    ref.current.rotation.y += Math.abs(Math.sin(delta / 4))
     ref.current.rotation.z = delta / 4
   })
 
@@ -63,7 +63,7 @@ const NumberNode = ({ text, ...props }) => {
       scale={0.5}
       {...props}
     >
-      <Text3D font={'/fonts/Inter_Bold.typeface.json'} size={0.5}>
+      <Text3D font={'/fonts/helvetiker_bold.typeface.json'}>
         {text}
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />
       </Text3D>
