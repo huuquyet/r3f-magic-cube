@@ -1659,9 +1659,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-three/drei@npm:^9.105.5":
-  version: 9.105.5
-  resolution: "@react-three/drei@npm:9.105.5"
+"@react-three/drei@npm:^9.105.6":
+  version: 9.105.6
+  resolution: "@react-three/drei@npm:9.105.6"
   dependencies:
     "@babel/runtime": "npm:^7.11.2"
     "@mediapipe/tasks-vision": "npm:0.10.8"
@@ -1694,7 +1694,7 @@ __metadata:
   peerDependenciesMeta:
     react-dom:
       optional: true
-  checksum: 10/301814ef8d50933ab040403687d014246e551e6fd1a058a8aa1766a274d6adf47323989174d06795f64aa52cdd4bd5eecdfb4b4bc6cbba7d52e2ec967943d4d2
+  checksum: 10/48a1122f6b6cb06dbb4856f1b94151302c8911cbeaeaecb5768dde77dfe3b12e6d58ead5e5b4043239f859e8be2fe502003e4c635432a85e06347336070b21b2
   languageName: node
   linkType: hard
 
@@ -4679,7 +4679,7 @@ __metadata:
   dependencies:
     "@ducanh2912/next-pwa": "npm:^10.2.6"
     "@next/bundle-analyzer": "npm:^14.2.3"
-    "@react-three/drei": "npm:^9.105.5"
+    "@react-three/drei": "npm:^9.105.6"
     "@react-three/fiber": "npm:^8.16.3"
     "@studio-freight/lenis": "npm:^1.0.42"
     "@types/node": "npm:^20.12.8"

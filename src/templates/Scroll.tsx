@@ -48,23 +48,8 @@ export default function Scroll({ children }) {
   }, [])
 
   return (
-    <div
-      ref={wrapper}
-      style={{
-        position: 'absolute',
-        overflow: 'hidden',
-        width: '100%',
-        height: '100%',
-        top: 0,
-      }}
-    >
-      <div
-        ref={content}
-        style={{
-          position: 'relative',
-          minHeight: '200vh',
-        }}
-      >
+    <div ref={wrapper} className="absolute overflow-hidden w-full h-full top-0">
+      <div ref={content} className="relative min-h-[200vh]">
         {children}
       </div>
     </div>
