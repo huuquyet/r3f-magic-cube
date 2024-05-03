@@ -1,4 +1,4 @@
-import { Layout } from '@/components/dom/Layout'
+import dynamic from 'next/dynamic'
 import './global.css'
 import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
@@ -11,6 +11,8 @@ const APP_DESCRIPTION = 'Magic Cube built with React-Three-Fiber + Three.js + Ne
 const APP_URL = 'https://magic-cube-r3f.vercel.app/'
 const TWITTER = '@HuuQuyetNg'
 
+const Scene = dynamic(() => import('@/components/Scene'), { ssr: false })
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="antialiased">
@@ -21,7 +23,17 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-        <Layout>{children}</Layout>
+        {children}
+        <Scene
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            pointerEvents: 'none',
+          }}
+        />
         <Analytics />
       </body>
     </html>

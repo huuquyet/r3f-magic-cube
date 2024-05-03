@@ -3,17 +3,14 @@
 import Loading from '@/app/loading'
 import dynamic from 'next/dynamic'
 
-const MagicCube = dynamic(
-  () => import('@/components/canvas/MagicCube').then((mod) => mod.MagicCube),
-  {
-    ssr: false,
-  }
-)
-const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
+const MagicCube = dynamic(() => import('@/components/MagicCube'), {
+  ssr: false,
+})
+const View = dynamic(() => import('@/components/View'), {
   ssr: false,
   loading: () => <Loading />,
 })
-const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), {
+const Common = dynamic(() => import('@/components/Common'), {
   ssr: false,
 })
 

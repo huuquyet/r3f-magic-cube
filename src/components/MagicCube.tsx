@@ -18,7 +18,7 @@ const ASPECT_4 = [
   12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
 ]
 
-export const MagicCube = ({ type, ...props }: { type?: number }) => {
+export default function MagicCube({ type, ...props }: { type?: number }) {
   const ref = useRef<Group>(null!)
   useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
@@ -67,19 +67,10 @@ const NumberNode = ({
     <Center
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
-      scale={0.4}
+      scale={0.5}
       {...props}
     >
-      <Text3D
-        font={font}
-        castShadow
-        bevelEnabled
-        letterSpacing={-0.03}
-        bevelSize={0.01}
-        bevelSegments={10}
-        curveSegments={128}
-        bevelThickness={0.01}
-      >
+      <Text3D font={font} castShadow letterSpacing={-0.03}>
         {text}
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />
       </Text3D>
