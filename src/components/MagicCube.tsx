@@ -18,7 +18,7 @@ const ASPECT_4 = [
   12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
 ]
 
-export default function MagicCube({ type, ...props }: { type?: number }) {
+export default function MagicCube({ aspect, ...props }: { aspect?: number }) {
   const ref = useRef<Group>(null!)
   useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
@@ -28,7 +28,7 @@ export default function MagicCube({ type, ...props }: { type?: number }) {
   })
 
   let cubeArray: number[]
-  switch (type) {
+  switch (aspect) {
     case 1:
       cubeArray = ASPECT_1
       break
