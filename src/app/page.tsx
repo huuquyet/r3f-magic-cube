@@ -25,8 +25,8 @@ const Aspect = ({ aspect }: { aspect: number }) => {
     <div className="mx-auto flex flex-col flex-wrap w-full items-center lg:w-4/5 md:flex-row">
       <div className="flex flex-col p-12 w-full items-start justify-center text-center md:w-2/5 md:text-left">
         <Link href={`/${aspect}`}>
-          <h1 className="w-full my-4 text-5xl font-bold leading-tight text-sky-500">Magic Cube</h1>
-          <p className="w-full uppercase text-slate-400">Aspect {aspect}</p>
+          <h1 className="w-full my-4 text-5xl font-bold leading-tight text-sky-600">Magic Cube</h1>
+          <p className="w-full underline text-slate-400">Aspect {aspect} →</p>
         </Link>
       </div>
 
