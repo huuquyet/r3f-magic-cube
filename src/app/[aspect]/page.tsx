@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { aspect: string } }) {
       <div className="mx-auto flex flex-col flex-wrap w-full items-center md:flex-row">
         <div className="flex flex-col p-12 w-full items-start justify-center text-center md:w-2/5 md:text-left z-[1]">
           <p className="w-full uppercase text-slate-500">React Three Fiber</p>
-          <Link href="https://en.wikipedia.org/wiki/Magic_cube" target="_blank">
+          <Link href="https://en.wikipedia.org/wiki/Magic_cube" rel="noopener" target="_blank">
             <h1 className="my-4 text-5xl font-bold leading-tight text-sky-400">Magic Cube</h1>
           </Link>
           <p className="w-full uppercase text-slate-400">Aspect {aspect}</p>

@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     },
     description: APP_DESCRIPTION,
     url: APP_URL,
-    images: ['/icons/share.png'],
+    images: ['/icons/logo.svg'],
   },
   twitter: {
     card: 'summary',
