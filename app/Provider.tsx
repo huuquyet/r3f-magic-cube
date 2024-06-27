@@ -4,7 +4,7 @@ import { MyScene } from '@/components'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { ToastProvider, ToastViewport } from '@tamagui/toast'
 import { useAtom } from 'jotai'
-import { Appearance } from 'react-native'
+import { Appearance, StyleSheet } from 'react-native'
 import { TamaguiProvider, type TamaguiProviderProps } from 'tamagui'
 import { config } from '../tamagui.config'
 
@@ -38,16 +38,7 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
           }
         >
           {children}
-          <MyScene
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100vw',
-              height: '100vh',
-              pointerEvents: 'none',
-            }}
-          />
+          <MyScene style={styles.scene} />
           <CurrentToast />
           <ToastViewport t="$8" l={0} r={0} />
         </ToastProvider>
@@ -55,3 +46,14 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
     </TamaguiProvider>
   )
 }
+
+const styles = StyleSheet.create({
+  scene: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    pointerEvents: 'none',
+  },
+})

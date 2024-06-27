@@ -1,5 +1,5 @@
 import { themeAtom } from '@/Provider'
-import { Atom, AudioWaveform, Monitor, Moon, Sun } from '@tamagui/lucide-icons'
+import { Heading1, Heading2, Heading3, Heading4, Monitor, Moon, Sun } from '@tamagui/lucide-icons'
 import { Tabs } from 'expo-router'
 import { useAtom } from 'jotai'
 import { Button, XStack, useTheme } from 'tamagui'
@@ -22,32 +22,32 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <Atom color={color} />,
+          title: 'Aspect I',
+          tabBarIcon: ({ color }) => <Heading1 color={color} />,
           headerRight: () => <ThemeButton />,
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <AudioWaveform color={color} />,
+          title: 'Aspect II',
+          tabBarIcon: ({ color }) => <Heading2 color={color} />,
           headerRight: () => <ThemeButton />,
         }}
       />
       <Tabs.Screen
         name="three"
         options={{
-          title: 'Tab Three',
-          tabBarIcon: ({ color }) => <AudioWaveform color={color} />,
+          title: 'Aspect III',
+          tabBarIcon: ({ color }) => <Heading3 color={color} />,
           headerRight: () => <ThemeButton />,
         }}
       />
       <Tabs.Screen
         name="four"
         options={{
-          title: 'Tab Four',
-          tabBarIcon: ({ color }) => <AudioWaveform color={color} />,
+          title: 'Aspect IV',
+          tabBarIcon: ({ color }) => <Heading4 color={color} />,
           headerRight: () => <ThemeButton />,
         }}
       />
