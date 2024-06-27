@@ -3,7 +3,7 @@
 import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
 
-export default function Common({
+export function Common({
   color,
   orbit,
   enableZoom,

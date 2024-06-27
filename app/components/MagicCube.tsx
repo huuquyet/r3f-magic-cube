@@ -4,6 +4,7 @@ import { Center, Text3D, useCursor } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
 import type { Group } from 'three'
+import helveFont from '../../public/fonts/helvetiker_bold.typeface.json'
 
 const ASPECT_1 = [
   18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24, 10,
@@ -18,7 +19,7 @@ const ASPECT_4 = [
   12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
 ]
 
-export default function MagicCube({ aspect, ...props }: { aspect: number }) {
+export function MagicCube({ aspect, ...props }: { aspect: number }) {
   const ref = useRef<Group>(null!)
   useFrame((state: any, delta: number) => {
     const t = state.clock.getElapsedTime()
@@ -57,9 +58,9 @@ export default function MagicCube({ aspect, ...props }: { aspect: number }) {
 
 const NumberNode = ({
   text,
-  font = '/fonts/helvetiker_bold.typeface.json',
+  font = helveFont,
   ...props
-}: { text: any; font?: string; position?: [x: number, y: number, z: number] }) => {
+}: { text: number; font?: any; position?: [x: number, y: number, z: number] }) => {
   const [hovered, hover] = useState(false)
   useCursor(hovered)
 

@@ -1,0 +1,34 @@
+{
+  "expo": {
+    "name": "Magic Cube",
+    "slug": "r3f-magic-cube",
+    "version": "3.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/logo.svg",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/icons/logo.svg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/logo.svg",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": ["expo-router", "expo-asset"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

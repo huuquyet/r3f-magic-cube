@@ -6,24 +6,28 @@
 
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["./node_modules", "./.next", "/.vercel", "./dist", "./public"]
+    "ignore": [
+      "./node_modules",
+      "./.expo",
+      "./.tamagui",
+      "./.vercel",
+      "./dist",
+      "./public",
+      "./android",
+      "./ios"
+    ]
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
-      "a11y": {
-        "noSvgWithoutTitle": "off",
-        "useKeyWithClickEvents": "off"
-      },
-      "correctness": {
-        "useExhaustiveDependencies": "off"
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
       },
       "style": {
         "noNonNullAssertion": "off"
       },
       "suspicious": {
-        "noAssignInExpressions": "off",
         "noExplicitAny": "off"
       }
     }
