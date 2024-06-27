@@ -7,7 +7,7 @@ export default function AspectThree() {
     <YStack f={1} ai="center" jc="center">
       <MyView style={styles.view}>
         <MagicCube aspect={3} />
-        <Common orbit color="black" />
+        <Common orbit color="$background" />
       </MyView>
     </YStack>
   )
