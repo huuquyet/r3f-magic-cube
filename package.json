@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "android": "bunx expo run android",
-    "build:web": "bunx expo export -p web && bunx workbox-cli generateSW workbox-config.mjs",
+    "build:web": "bunx expo export -p web && bunx workbox-cli generateSW workbox-config.js",
     "check": "bunx expo install --fix",
     "clean": "git clean -xdf",
     "doctor": "bunx expo-doctor@latest",
