@@ -11,7 +11,7 @@ export function generateStaticParams() {
 }
 
 export default function Page({ params }: { params: { aspect: string } }) {
-  const { aspect } = params
+  const type = Number(params.aspect)
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function Page({ params }: { params: { aspect: string } }) {
           <Link href="https://en.wikipedia.org/wiki/Magic_cube" rel="noopener" target="_blank">
             <h1 className="my-4 text-5xl font-bold leading-tight text-sky-400">Magic Cube</h1>
           </Link>
-          <p className="w-full uppercase text-slate-400">Aspect {aspect}</p>
+          <p className="w-full uppercase text-slate-400">Aspect {type}</p>
           <Link href="/">
             <p className="mb-8 text-2xl leading-normal underline text-sky-500">← Back to home</p>
           </Link>
@@ -29,7 +29,7 @@ export default function Page({ params }: { params: { aspect: string } }) {
       </div>
 
       <View className="absolute top-0 flex flex-col h-full w-full items-center justify-center">
-        <MagicCube aspect={aspect} />
+        <MagicCube aspect={type} />
         <Common orbit color="black" />
       </View>
     </>
