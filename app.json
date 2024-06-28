@@ -4,11 +4,11 @@
     "slug": "r3f-magic-cube",
     "version": "3.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icons/logo.svg",
+    "icon": "./public/icons/logo.svg",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/icons/logo.svg",
+      "image": "./public/icons/logo.svg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icons/logo.svg",
+        "foregroundImage": "./public/icons/logo.svg",
         "backgroundColor": "#ffffff"
       }
     },
