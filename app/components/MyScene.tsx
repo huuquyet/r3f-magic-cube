@@ -1,5 +1,3 @@
-'use client'
-
 import { Preload, View } from '@react-three/drei'
 import { Canvas, addEffect } from '@react-three/fiber'
 import Lenis from '@studio-freight/lenis'

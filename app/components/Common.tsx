@@ -1,7 +1,6 @@
-'use client'
-
 import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
+import { Loading } from './loading'
 
 export function Common({
   color,
@@ -9,7 +8,7 @@ export function Common({
   enableZoom,
 }: { color?: string; orbit?: boolean; enableZoom?: boolean }) {
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<Loading />}>
       {color && <color attach="background" args={[color]} />}
       <ambientLight />
       <pointLight position={[20, 30, 10]} intensity={3} decay={0.2} />

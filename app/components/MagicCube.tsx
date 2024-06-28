@@ -1,5 +1,3 @@
-'use client'
-
 import { Center, Text3D, useCursor } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useRef, useState } from 'react'
