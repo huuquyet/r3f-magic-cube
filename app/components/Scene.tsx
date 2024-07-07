@@ -3,7 +3,7 @@ import { Canvas, addEffect } from '@react-three/fiber'
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react'
 
-export function MyScene({ ...props }) {
+export function Scene({ ...props }) {
   // Use lenis to control scrolling
   useEffect(() => {
     const lenis = new Lenis({ smoothWheel: true, syncTouch: true })

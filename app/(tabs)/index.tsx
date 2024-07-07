@@ -1,14 +1,15 @@
-import MyView, { Common, MagicCube } from '@/components'
+import { Common, MagicCube } from '@/components'
+import { View } from '@react-three/drei'
 import { StyleSheet } from 'react-native'
 import { YStack } from 'tamagui'
 
 export default function AspectOne() {
   return (
     <YStack f={1} ai="center" jc="center">
-      <MyView style={styles.view}>
+      <View style={styles.view}>
         <MagicCube aspect={1} />
         <Common orbit color="$background" />
-      </MyView>
+      </View>
     </YStack>
   )
 }
