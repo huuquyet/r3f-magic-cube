@@ -66,10 +66,10 @@ const NumberNode = ({
     <Center
       onPointerOver={() => hover(true)}
       onPointerOut={() => hover(false)}
-      scale={0.5}
+      scale={0.42}
       {...props}
     >
-      <Text3D font={font} castShadow letterSpacing={-0.03}>
+      <Text3D font={font} castShadow letterSpacing={0}>
         {text}
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />
       </Text3D>
