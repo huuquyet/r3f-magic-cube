@@ -1,6 +1,6 @@
 import { CurrentToast } from '@/CurrentToast'
 import { type mode, themeWithToggle } from '@/atoms/theme'
-import { Scene } from '@/components'
+import { Scene } from '@/r3f'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { ToastProvider, ToastViewport } from '@tamagui/toast'
 import { useAtom } from 'jotai'

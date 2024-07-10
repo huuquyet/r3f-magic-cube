@@ -1,6 +1,6 @@
 import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
-import { Loading } from './Loading'
+import { Loading } from '../components/Loading'
 
 export function Common({
   color,
