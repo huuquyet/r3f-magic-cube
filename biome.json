@@ -6,16 +6,7 @@
 
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      "./node_modules",
-      "./.expo",
-      "./.tamagui",
-      "./.vercel",
-      "./dist",
-      "./public",
-      "./android",
-      "./ios"
-    ]
+    "ignore": ["./node_modules", "./.expo", "./.tamagui", "./.vercel", "./dist", "./public", "./android", "./ios"]
   },
   "linter": {
     "enabled": true,
@@ -40,7 +31,7 @@
     "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 100,
+    "lineWidth": 120,
     "ignore": []
   },
   "javascript": {

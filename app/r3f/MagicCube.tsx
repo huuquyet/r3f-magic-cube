@@ -5,16 +5,20 @@ import type { Group } from 'three'
 import helveFont from '../../public/fonts/helvetiker_bold.typeface.json'
 
 const ASPECT_1 = [
-  18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24, 10,
+  22, 11, 9, 2, 27, 13, 18, 4, 20, 12, 7, 23, 25, 14, 3, 5, 21, 16, 8, 24, 10, 15, 1, 26, 19, 17, 6,
+  // 18, 4, 20, 2, 27, 13, 22, 11, 9, 5, 21, 16, 25, 14, 3, 12, 7, 23, 19, 17, 6, 15, 1, 26, 8, 24, 10,
 ]
 const ASPECT_2 = [
-  16, 5, 21, 2, 27, 13, 24, 10, 8, 6, 19, 17, 25, 14, 3, 11, 9, 22, 20, 18, 4, 15, 1, 26, 7, 23, 12,
+  24, 10, 8, 2, 27, 13, 16, 5, 21, 11, 9, 22, 25, 14, 3, 6, 19, 17, 7, 23, 12, 15, 1, 26, 20, 18, 4,
+  // 16, 5, 21, 2, 27, 13, 24, 10, 8, 6, 19, 17, 25, 14, 3, 11, 9, 22, 20, 18, 4, 15, 1, 26, 7, 23, 12,
 ]
 const ASPECT_3 = [
-  10, 5, 27, 6, 25, 11, 26, 12, 4, 8, 21, 13, 19, 14, 9, 15, 7, 20, 24, 16, 2, 17, 3, 22, 1, 23, 18,
+  10, 5, 27, 8, 21, 13, 24, 16, 2, 6, 25, 11, 19, 14, 9, 17, 3, 22, 26, 12, 4, 15, 7, 20, 1, 23, 18,
+  // 10, 5, 27, 6, 25, 11, 26, 12, 4, 8, 21, 13, 19, 14, 9, 15, 7, 20, 24, 16, 2, 17, 3, 22, 1, 23, 18,
 ]
 const ASPECT_4 = [
-  12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
+  6, 10, 26, 20, 9, 13, 16, 23, 3, 11, 27, 4, 7, 14, 21, 24, 1, 17, 25, 5, 12, 15, 19, 8, 2, 18, 22,
+  // 12, 5, 25, 4, 27, 11, 26, 10, 6, 8, 19, 15, 21, 14, 7, 13, 9, 20, 22, 18, 2, 17, 1, 24, 3, 23, 16,
 ]
 
 export function MagicCube({ aspect, ...props }: { aspect: number }) {
@@ -44,11 +48,7 @@ export function MagicCube({ aspect, ...props }: { aspect: number }) {
   return (
     <group ref={ref} {...props}>
       {cubeArray.map((e, i) => (
-        <NumberNode
-          key={e}
-          text={e}
-          position={[(i % 3) - 1, Math.floor(i / 9) - 1, (Math.floor(i / 3) % 3) - 1]}
-        />
+        <NumberNode key={e} text={e} position={[(i % 3) - 1, Math.floor(i / 9) - 1, (Math.floor(i / 3) % 3) - 1]} />
       ))}
     </group>
   )
@@ -63,12 +63,7 @@ const NumberNode = ({
   useCursor(hovered)
 
   return (
-    <Center
-      onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}
-      scale={0.42}
-      {...props}
-    >
+    <Center onPointerOver={() => hover(true)} onPointerOut={() => hover(false)} scale={0.42} {...props}>
       <Text3D font={font} castShadow letterSpacing={0}>
         {text}
         <meshPhysicalMaterial transparent roughness={0.5} color={hovered ? 'hotpink' : 'orange'} />

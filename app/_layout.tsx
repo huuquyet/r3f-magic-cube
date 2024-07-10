@@ -1,9 +1,12 @@
 import '../tamagui-web.css'
-import { Provider } from '@/Provider'
+import { Provider, themeAtom } from '@/Provider'
 import { Inter_400Regular, Inter_900Black, useFonts } from '@expo-google-fonts/inter'
+import { Monitor, Moon, Sun } from '@tamagui/lucide-icons'
 import { inject } from '@vercel/analytics'
 import { SplashScreen, Stack } from 'expo-router'
+import { useAtom } from 'jotai'
 import { useEffect } from 'react'
+import { Button, XStack } from 'tamagui'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -47,10 +50,27 @@ function RootLayoutNav() {
         <Stack.Screen
           name="(tabs)"
           options={{
-            headerShown: false,
+            title: 'Magic Cube',
+            headerRight: () => <ThemeButton />,
           }}
         />
       </Stack>
     </Provider>
+  )
+}
+
+const icons = {
+  dark: <Moon />,
+  light: <Sun />,
+  system: <Monitor />,
+}
+
+const ThemeButton = () => {
+  const [theme, toggle] = useAtom(themeAtom)
+
+  return (
+    <XStack mr="$4" gap="$2">
+      <Button icon={icons[theme]} onPress={() => toggle()} circular />
+    </XStack>
   )
 }

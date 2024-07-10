@@ -2,11 +2,7 @@ import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei'
 import { Suspense } from 'react'
 import { Loading } from '../components/Loading'
 
-export function Common({
-  color,
-  orbit,
-  enableZoom,
-}: { color?: string; orbit?: boolean; enableZoom?: boolean }) {
+export function Common({ color, orbit, enableZoom }: { color?: string; orbit?: boolean; enableZoom?: boolean }) {
   return (
     <Suspense fallback={<Loading />}>
       {color && <color attach="$background" args={[color]} />}
