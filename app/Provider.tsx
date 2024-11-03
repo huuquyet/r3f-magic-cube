@@ -4,7 +4,7 @@ import { Scene } from '@/r3f'
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native'
 import { ToastProvider, ToastViewport } from '@tamagui/toast'
 import { useAtom } from 'jotai'
-import { Appearance, StyleSheet } from 'react-native'
+import { Appearance, StatusBar, StyleSheet } from 'react-native'
 import { TamaguiProvider, type TamaguiProviderProps } from 'tamagui'
 import { config } from '../tamagui.config'
 
@@ -23,6 +23,7 @@ export function Provider({ children, ...rest }: Omit<TamaguiProviderProps, 'conf
   return (
     <TamaguiProvider config={config} defaultTheme={current() === 'dark' ? 'dark' : 'light'} {...rest}>
       <ThemeProvider value={current() === 'dark' ? DarkTheme : DefaultTheme}>
+        <StatusBar barStyle={current() === 'dark' ? 'light-content' : 'dark-content'} />
         <ToastProvider
           swipeDirection="horizontal"
           duration={6000}

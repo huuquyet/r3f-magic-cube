@@ -6,7 +6,7 @@ import { inject } from '@vercel/analytics'
 import { SplashScreen, Stack } from 'expo-router'
 import { useAtom } from 'jotai'
 import { useEffect } from 'react'
-import { Button, XStack } from 'tamagui'
+import { Button, XStack, useTheme } from 'tamagui'
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -40,22 +40,32 @@ export default function RootLayout() {
 
   inject()
 
-  return <RootLayoutNav />
+  return (
+    <Provider>
+      <RootLayoutNav />
+    </Provider>
+  )
 }
 
 function RootLayoutNav() {
+  const theme = useTheme()
+
   return (
-    <Provider>
-      <Stack>
-        <Stack.Screen
-          name="(tabs)"
-          options={{
-            title: 'Magic Cube',
-            headerRight: () => <ThemeButton />,
-          }}
-        />
-      </Stack>
-    </Provider>
+    <Stack>
+      <Stack.Screen
+        name="(tabs)"
+        options={{
+          title: 'Magic Cube',
+          headerRight: () => <ThemeButton />,
+          animation: 'slide_from_right',
+          gestureEnabled: true,
+          gestureDirection: 'horizontal',
+          contentStyle: {
+            backgroundColor: theme.background.val,
+          },
+        }}
+      />
+    </Stack>
   )
 }
 

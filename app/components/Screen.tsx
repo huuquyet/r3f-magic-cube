@@ -5,7 +5,7 @@ import { YStack } from 'tamagui'
 
 export function Screen({ aspect }: { aspect: number }) {
   return (
-    <YStack f={1} ai="center" jc="center">
+    <YStack f={1} ai="center" jc="center" bg="$background">
       <View style={styles.view}>
         <MagicCube aspect={aspect} />
         <Common orbit color="$background" />
